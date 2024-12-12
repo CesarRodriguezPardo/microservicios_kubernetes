@@ -5,22 +5,25 @@ metadata:
   labels:
     app: mysql-config-map
 data:
-  DB_HOST_USER: user-db-service
-  DB_PORT_USER: "3306"
-  DB_NAME_USER: user-db
-  DB_HOST_CREDITSIMULATION: creditsimulation-db-service
-  DB_PORT_CREDITSIMULATION: "5432"
-  DB_NAME_CREDITSIMULATION: creditsimulation-db
-  DB_HOST_CREDITAPPLICATION: creditapplication-db-service
-  DB_PORT_CREDITAPPLICATION: "5432"
-  DB_NAME_CREDITAPPLICATION: creditapplication-db
-  DB_HOST_EVALUATECREDIT: evaluatecredit-db-service
-  DB_PORT_EVALUATECREDIT: "5432"
-  DB_NAME_EVALUATECREDIT: evaluatecredit-db
-  DB_HOST_FOLLOWREQUEST: followrequest-db-service
-  DB_PORT_FOLLOWREQUEST: "5432"
-  DB_NAME_FOLLOWREQUEST: followrequest-db
-  DB_HOST_TOTALCOST: totalcost-db-service
-  DB_PORT_TOTALCOST: "5432"
-  DB_NAME_TOTALCOST: totalcost-db
+  DB_HOST_ORDERS: mscredit-db-service
+  DB_PORT_ORDERS: 3306
+  DB_NAME_ORDERS: mscredit
+
+  DB_HOST_ORDERS1: msdocument-db-service
+  DB_PORT_ORDERS1: 3306
+  DB_NAME_ORDERS1: msdocument
+
+  DB_HOST_ORDERS2: msevaluation-db-service
+  DB_PORT_ORDERS2: 3306
+  DB_NAME_ORDERS2: msevaluation
+
+  DB_HOST_ORDERS3: msregister-db-service
+  DB_PORT_ORDERS3: 3306
+  DB_NAME_ORDERS3: register
+
+  DB_HOST_ORDERS4: mssimulation-db-service
+  DB_PORT_ORDERS4: 3306
+  DB_NAME_ORDERS4: mssimulation
+
+
   

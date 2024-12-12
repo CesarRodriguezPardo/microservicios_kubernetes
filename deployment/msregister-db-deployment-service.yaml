@@ -52,8 +52,15 @@ spec:
           image: mysql
           imagePullPolicy: "IfNotPresent"
           ports:
-            - containerPort: 5432
+            - containerPort: 3306
           env:
+            # Configuración para el usuario root
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: DB_PASSWORD
+            # Configuración para el usuario regular
             - name: MYSQL_USER
               valueFrom:
                 secretKeyRef:
@@ -64,9 +71,11 @@ spec:
                 secretKeyRef:
                   name: mysql-secret
                   key: DB_PASSWORD
+            - name: MYSQL_DATABASE
+              value: msregister
           volumeMounts:
             - name: msregister-db-storage
-              mountPath: /var/lib/mysql/data
+              mountPath: /var/lib/mysql
       volumes:
         - name: msregister-db-storage
           persistentVolumeClaim:

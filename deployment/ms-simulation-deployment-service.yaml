@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-simulation-deployment
+  labels:
+    app: ms-simulation-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-simulation-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-simulation-deployment
+    spec:
+      containers:
+        - name: ms-simulation
+          image: cesarrodriguezpardo/ms-simulation
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SERVER_PORT
+              value: "0"
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: DB_HOST_ORDERS4
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: DB_PORT_ORDERS4
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: DB_NAME_ORDERS4
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: DB_PASSWORD

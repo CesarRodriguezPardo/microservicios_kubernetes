@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-document-deployment
+  labels:
+    app: ms-document-deployment
+spec:
+  selector:
+    matchLabels:
+      app: ms-document-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ms-document-deployment
+    spec:
+      containers:
+        - name: ms-document
+          image: cesarrodriguezpardo/ms-document
+          ports:
+            - containerPort: 8090
+          env:
+            - name: SERVER_PORT
+              value: "0"
+            - name: DB_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: DB_HOST_ORDERS1
+            - name: DB_PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: DB_PORT_ORDERS1
+            - name: DB_NAME
+              valueFrom:
+                configMapKeyRef:
+                  name: mysql-config-map
+                  key: DB_NAME_ORDERS1
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secrets
+                  key: DB_PASSWORD
