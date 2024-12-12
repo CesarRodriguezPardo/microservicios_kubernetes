@@ -6,23 +6,23 @@ metadata:
     app: mysql-config-map
 data:
   DB_HOST_ORDERS: mscredit-db-service
-  DB_PORT_ORDERS: 3306
+  DB_PORT_ORDERS: "3306"
   DB_NAME_ORDERS: mscredit
 
   DB_HOST_ORDERS1: msdocument-db-service
-  DB_PORT_ORDERS1: 3306
+  DB_PORT_ORDERS1: "3306"
   DB_NAME_ORDERS1: msdocument
 
   DB_HOST_ORDERS2: msevaluation-db-service
-  DB_PORT_ORDERS2: 3306
+  DB_PORT_ORDERS2: "3306"
   DB_NAME_ORDERS2: msevaluation
 
   DB_HOST_ORDERS3: msregister-db-service
-  DB_PORT_ORDERS3: 3306
+  DB_PORT_ORDERS3: "3306"
   DB_NAME_ORDERS3: register
 
   DB_HOST_ORDERS4: mssimulation-db-service
-  DB_PORT_ORDERS4: 3306
+  DB_PORT_ORDERS4: "3306"
   DB_NAME_ORDERS4: mssimulation
 
 
