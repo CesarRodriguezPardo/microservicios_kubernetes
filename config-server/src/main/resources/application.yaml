@@ -6,7 +6,7 @@ spring:
       server:
         git:
           default-label: main
-          uri: https://github.com/CesarRodriguezPardo/microservicios
+          uri: https://github.com/CesarRodriguezPardo/microservicios_kubernetes
           search-paths: config-data
   application:
     name: config-service
